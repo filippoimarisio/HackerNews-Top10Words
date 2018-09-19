@@ -1,5 +1,8 @@
-import newStories from './newStories'
+import newStories from './newStories';
+import newStoriesList from './newStoriesList';
+
 
 export default {
-  newStories
+  newStories,
+  newStoriesList
 }
