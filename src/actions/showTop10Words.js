@@ -1,22 +1,28 @@
-export const SHOW_TOP_10_WORDS = 'SHOW_TOP_10_WORDS';
 
-export const showTop10Words = (option) => {
-    return {
-      type: SHOW_TOP_10_WORDS,
-      payload: {option}
-    }
-}
 
-// export const lastWeek = (option) => {
+
+// export const LAST_25 = 'LAST_25';
+// export const LAST_WEEK = 'LAST_WEEK';
+// export const GOOD_KARMA = 'GOOD_KARMA';
+
+
+// export const last25 = stories => {
 //   return {
-//     type: LAST_WEEK,
-//     payload: option
+//     type: LAST_25,
+//     payload: stories
 //   }
 // }
 
-// export const overKarma = (option) => {
+// export const lastWeek = stories => {
 //   return {
-//     type: OVER_KARMA,
-//     payload: option
+//     type: LAST_WEEK,
+//     payload: stories
+//   }
+// }
+
+// export const goodKarma = stories => {
+//   return {
+//     type: GOOD_KARMA,
+//     payload: stories
 //   }
 // }

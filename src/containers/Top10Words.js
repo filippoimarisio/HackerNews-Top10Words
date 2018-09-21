@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchData} from '../actions/fetchData';
+import {resetState} from '../actions/resetState';
 import Dropdown from '../components/Dropdown'
-import {showTop10Words} from '../actions/showTop10Words'
 
 class Top10Words extends Component {
 
+
   refreshData = () => {
-    // this.props.fetchData()
-    console.log('data')
+    this.props.resetState()
+    this.props.fetchData()
   }
 
   showTop10 = option => {
-    console.log(option)
-    this.props.showTop10Words(option)
+    console.log('bella oh')
   }
 
   render() {
 
-    const title = this.props.title
+    
+    const newStoriesList = this.props.newStoriesList
+    if (newStoriesList.length < 500) return 'Loading...'
+    console.log(newStoriesList)
 
     return (
       <div>
-        <button className='refreshData' onClick={this.refreshData()}>Refresh data</button>
+        <button className='refreshData' onClick={this.refreshData}>Refresh data</button>
         <div>
           <Dropdown showTop10={this.showTop10}/>
         </div>
@@ -31,5 +34,9 @@ class Top10Words extends Component {
   }
 }
 
+const mapStateToProps = ({newStoriesList}) => {
+  return {newStoriesList}
+}
 
-export default connect (null,{fetchData, showTop10Words})(Top10Words);
+
+export default connect (mapStateToProps,{fetchData, resetState})(Top10Words);
