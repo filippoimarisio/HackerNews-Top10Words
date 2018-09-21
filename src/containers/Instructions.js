@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {fetchData} from '../actions/fetchData';
-
+import { fetchData } from '../actions/fetchData';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 class Instructions extends Component {
 
@@ -11,10 +12,15 @@ class Instructions extends Component {
   render() {
     return (
       <div>
-        
+        <h3>
+          Click this button to start
+        </h3>
+        <Link to={`/top10`}>
+          <button className='start' onClick={this.refreshData}>Start</button>
+        </Link>
       </div>
     );
   }
 }
 
-export default Instructions;
+export default connect(null, {fetchData}) (Instructions);
