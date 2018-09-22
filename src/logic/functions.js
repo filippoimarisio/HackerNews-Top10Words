@@ -2,13 +2,10 @@
 
 export const last25Top10 = (list) => {
   const orderedList = orderByTime(list)
-  console.log('orderedList',orderedList)
   const last25Stories = last25(orderedList)
-  console.log('last25stories',last25Stories)
   const titles = extractTitles(last25Stories)
-  console.log('titles',titles)
   const top10Words = wordsCounter(titles)
-  console.log(top10Words)
+  return top10Words
 }
 
 
@@ -45,7 +42,7 @@ const wordsCounter = list => {
     organizedCounter.push({word: words, counter: counter[words]})
   })
 
-  const sortedCounter = organizedCounter.sort((a, b) => b.counter - a.counter)
+  const sortedCounter = organizedCounter.sort((a, b) => b.counter - a.counter).slice(0,10)
 
   return sortedCounter
 }
