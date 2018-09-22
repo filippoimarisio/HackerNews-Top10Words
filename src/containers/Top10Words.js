@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {fetchData} from '../actions/fetchData';
 import {resetState} from '../actions/resetState';
 import Dropdown from '../components/Dropdown';
-import {last25Top10} from '../logic/functions';
+import {last25Top10, lastWeekTop10, goodKarmaTop10} from '../logic/functions';
 import {Top10List} from '../components/Top10List';
 import {showList} from '../actions/showList'
 
@@ -18,6 +18,13 @@ class Top10Words extends Component {
     if(option === 'last25') {
       const last25Top = last25Top10(this.props.newStoriesList)
       this.props.showList(last25Top)
+    }
+    if(option === 'lastWeek') {
+      const lastWeekTop = lastWeekTop10(this.props.newStoriesList)
+      this.props.showList(lastWeekTop)
+    }
+    if(option === 'goodKarma') {
+      this.props.showList('goodKarma')
     }
   } 
 

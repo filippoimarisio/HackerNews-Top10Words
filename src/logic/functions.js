@@ -1,6 +1,6 @@
 
 
-export const last25Top10 = (list) => {
+export const last25Top10 = list => {
   const orderedList = orderByTime(list)
   const last25Stories = last25(orderedList)
   const titles = extractTitles(last25Stories)
@@ -8,6 +8,13 @@ export const last25Top10 = (list) => {
   return top10Words
 }
 
+export const lastWeekTop10 = list => {
+  const orderedList = orderByTime(list)
+  const lastWeekStories = lastWeek(orderedList)
+  const titles = extractTitles(lastWeekStories)
+  const top10Words = wordsCounter(titles)
+  return top10Words
+}
 
 
 const orderByTime = list => {
@@ -46,5 +53,15 @@ const wordsCounter = list => {
 
   return sortedCounter
 }
+
+const lastWeek = list => {
+  const now = (new Date().getTime())/1000
+  const weekInSeconds = 86400 * 7
+  const filteredList = list.filter(story => {
+    return story.time > (now - weekInSeconds)
+  })
+  return filteredList
+}
+
 
 
