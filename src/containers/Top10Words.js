@@ -5,7 +5,11 @@ import {resetState} from '../actions/resetState';
 import Dropdown from '../components/Dropdown';
 import {last25Top10, lastWeekTop10, goodKarmaTop10} from '../logic/functions';
 import {Top10List} from '../components/Top10List';
-import {showList} from '../actions/showList'
+import {showList} from '../actions/showList';
+import {
+  CircularProgress,
+  Typography,
+} from '@material-ui/core';
 
 class Top10Words extends Component {
 
@@ -30,7 +34,15 @@ class Top10Words extends Component {
 
   render() {
 
-    if (this.props.newStoriesList.length < 500) return 'Loading...'
+    if(this.props.newStoriesList.length < 500) {
+      return (
+        <div className='noLocation'>
+          <CircularProgress />{' '}
+          <Typography>Fetching last HackerNews stories...</Typography>
+        </div>
+      )
+    }
+
     const {top10List} = this.props
 
     return (

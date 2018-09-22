@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 export const Top10List = top10List => {
   const list = top10List.top10List
-  console.log(list)
 
   if ( list === 'goodKarma')
   return (
@@ -12,16 +11,41 @@ export const Top10List = top10List => {
   )
   return (
     <div>
-      Here're the results
-      <ol>
-        {list.map(word => {
-          return (
-            <li key={word.word}>
-              {word.word} : {word.counter} times
-            </li>
-          )
-        })} 
-      </ol>
+      {list.length > 0 && (
+        <div>
+          Top 10 used words
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  Rank
+                </th>
+                <th>
+                  Word
+                </th>
+                <th>
+                  Counter
+                </th>
+              </tr>
+              {list.map(word => {
+                return (
+                  <tr key={word.word}>
+                    <td>
+                      {list.indexOf(word) + 1}
+                    </td>
+                    <td>
+                      {word.word}
+                    </td>
+                    <td>
+                      {word.counter}
+                    </td>
+                  </tr>
+                )
+              })} 
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   )
 }
