@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import '../App.css';
 
 export const Top10List = top10List => {
   const list = top10List.top10List
@@ -6,15 +7,19 @@ export const Top10List = top10List => {
   if ( list === 'goodKarma')
   return (
     <div>
-      This feature is currently not available
+      <h3 className='notAvailable'>
+        This feature is currently not available
+      </h3>
     </div>
   )
   return (
     <div>
       {list.length > 0 && (
         <div>
-          Top 10 used words
-          <table>
+          <h1>
+            Top 10 used words
+          </h1>
+          <table className='resultsTable'>
             <tbody>
               <tr>
                 <th>

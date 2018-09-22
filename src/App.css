@@ -1,28 +1,69 @@
 .App {
   text-align: center;
+  align-content: center;
+  width: 50%;
+  margin: 5% auto;
+  border: solid;
+  border-color: rgb(113, 113, 228);
+  height: 33rem;
+  position: relative;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.btn {
+  background-color: rgb(113, 113, 228);
+  border: none;
   color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin: 5% auto;
 }
 
-.App-title {
-  font-size: 1.5em;
+.loading {
+  margin: 30% auto
 }
 
-.App-intro {
-  font-size: large;
+.resultsTable {
+  margin: 5% auto;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.instructionsPage {
+  margin: 20% 5%;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+  width: 5rem
+}
+
+th {
+  color: rgb(113, 113, 228);
+  padding: 2px;
+}
+
+.notAvailable {
+  margin: 20% auto;
+}
+
+.dropbtn {
+  padding: 1.2rem;
+  font-size: 0.7rem;
+  width: 80%;
+  border: solid;
+  cursor: pointer;
+}
+
+.btnSubmit {
+  background-color: rgb(113, 113, 228);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
 }

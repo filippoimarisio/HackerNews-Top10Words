@@ -26,7 +26,7 @@ export const fetchData = () => (dispatch, getState) => {
 
       const newStories = getState().newStories
       newStories.map(story => {
-        request
+        return request
           .get(`${HNurl}item/${story}.json`)
           .then(response =>
             dispatch({

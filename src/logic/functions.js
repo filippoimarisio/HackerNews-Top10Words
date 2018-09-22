@@ -1,5 +1,4 @@
 
-
 export const last25Top10 = list => {
   const orderedList = orderByTime(list)
   const last25Stories = last25(orderedList)
@@ -42,12 +41,12 @@ const wordsCounter = list => {
     story.map(word => {
       if (counter[word]) counter[word] ++
       else counter[word] = 1
-    })
-  })
+    }); 
+  }); 
   const organizedCounter = []
   Object.keys(counter).map(words => {
     organizedCounter.push({word: words, counter: counter[words]})
-  })
+  }); 
 
   const sortedCounter = organizedCounter.sort((a, b) => b.counter - a.counter).slice(0,10)
 

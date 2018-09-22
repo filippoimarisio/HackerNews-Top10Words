@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import { fetchData } from '../actions/fetchData';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 class Instructions extends Component {
 
-  refreshData = () => {
-    this.props.fetchData()
-  }
-
   render() {
     return (
-      <div>
+      <div className='instructionsPage'>
         <h1>
           Welcome to HN top10 words
         </h1>
@@ -23,11 +18,11 @@ class Instructions extends Component {
           Click this button to start
         </h3>
         <Link to={`/top10`}>
-          <button className='start' onClick={this.refreshData}>Start</button>
+          <button className='btn'>Start</button>
         </Link>
       </div>
     );
   }
 }
 
-export default connect(null, {fetchData}) (Instructions);
+export default Instructions;

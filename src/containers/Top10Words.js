@@ -3,18 +3,23 @@ import { connect } from 'react-redux';
 import {fetchData} from '../actions/fetchData';
 import {resetState} from '../actions/resetState';
 import Dropdown from '../components/Dropdown';
-import {last25Top10, lastWeekTop10, goodKarmaTop10} from '../logic/functions';
+import {last25Top10, lastWeekTop10} from '../logic/functions';
 import {Top10List} from '../components/Top10List';
 import {showList} from '../actions/showList';
 import {
   CircularProgress,
   Typography,
 } from '@material-ui/core';
+import '../App.css';
 
 class Top10Words extends Component {
 
   refreshData = () => {
     this.props.resetState()
+    this.props.fetchData()
+  }
+  
+  componentDidMount = () => {
     this.props.fetchData()
   }
 
@@ -36,18 +41,16 @@ class Top10Words extends Component {
 
     if(this.props.newStoriesList.length < 500) {
       return (
-        <div className='noLocation'>
+        <div className='loading'>
           <CircularProgress />{' '}
           <Typography>Fetching last HackerNews stories...</Typography>
         </div>
       )
     }
-
     const {top10List} = this.props
-
     return (
       <div>
-        <button className='refreshData' onClick={this.refreshData}>Refresh data</button>
+        <button className='btn refreshData' onClick={this.refreshData}>Refresh data</button>
         <div>
           <Dropdown showTop10={this.showTop10}/>
         </div>
@@ -65,6 +68,5 @@ const mapStateToProps = (state) => {
     top10List: state.top10List
   }
 }
-
 
 export default connect (mapStateToProps,{fetchData, resetState, showList})(Top10Words);

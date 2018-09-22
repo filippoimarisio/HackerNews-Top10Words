@@ -6,12 +6,11 @@ export default (state = [], action = {}) => {
   switch(action.type) {
     
     case FETCH_NEW_STORIES:
-    const allNews = state.concat(action.payload)
-    return allNews
+      const allNews = state.concat(action.payload)
+      return allNews
 
-    case RESET_STATE:{
+    case RESET_STATE:  
       state = []
-    }
       return state
 
     default:

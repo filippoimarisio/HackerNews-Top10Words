@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Top10Words from './containers/Top10Words';
 import Instructions from './containers/Instructions';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 class App extends Component {
