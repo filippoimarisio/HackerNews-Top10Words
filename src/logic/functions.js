@@ -1,6 +1,7 @@
 
 export const last25Top10 = list => {
-  const orderedList = orderByTime(list)
+  const cleanData = completeData(list)
+  const orderedList = orderByTime(cleanData)
   const last25Stories = last25(orderedList)
   const titles = extractTitles(last25Stories)
   const top10Words = wordsCounter(titles)
@@ -8,13 +9,17 @@ export const last25Top10 = list => {
 }
 
 export const lastWeekTop10 = list => {
-  const orderedList = orderByTime(list)
+  const cleanData = completeData(list)
+  const orderedList = orderByTime(cleanData)
   const lastWeekStories = lastWeek(orderedList)
   const titles = extractTitles(lastWeekStories)
   const top10Words = wordsCounter(titles)
   return top10Words
 }
 
+const completeData = list => {
+  return list.filter(story => story)
+}
 
 const orderByTime = list => {
   return list.sort((a, b) => a.time - b.time)
